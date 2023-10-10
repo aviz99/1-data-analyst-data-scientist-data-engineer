@@ -13,30 +13,30 @@
 -- agar data tetap konsisten
 -- Database transaction adalah fitur di DBMS dimana kita bisa memungkinan beberapa perintah dianggap menjadi
 -- sebuah kesatuan perintah yang kita sebut transaction
--- Jika terdapat satu saja proses gagal di transaction, maka secara otomatis perintah-perintah sebelumnya akan dibatalkan
--- Jika sebuah transaction sukses, maka semua perintah akan dipastikan sukses
+-- Jika terdapat satu saja proses gagal di transaction, maka secara otomatis perintah-perintah sebelumnya
+-- akan dibatalkan Jika sebuah transaction sukses, maka semua perintah akan dipastikan sukses
 -- Start Transaction = Memulai proses transaksi, proses selanjutnya akan dianggap transaksi sampai
 -- perintah COMMIT atau ROLLBACK
 -- Commit = Menyimpan secara permanen seluruh proses transaksi
 -- Rollback = Membatalkan secara permanen seluruh proses transaksi
 
 -- melakukan Transaction
--- START TRANSACTION;
+START TRANSACTION;
 
--- INSERT INTO guestbooks (email, title, content)
--- VALUES ('contoh@gmail.com', 'Contoh', 'Contoh'),
--- 	   ('contoh2@gmail.com', 'Contoh', 'Contoh'),
---        ('contoh3@gmail.com', 'Contoh', 'Contoh');
--- SELECT * FROM guestbooks;
+INSERT INTO guestbooks (email, title, content)
+VALUES ('contoh@gmail.com', 'Contoh', 'Contoh'),
+       ('contoh2@gmail.com', 'Contoh', 'Contoh'),
+       ('contoh3@gmail.com', 'Contoh', 'Contoh');
+SELECT * FROM guestbooks;
 
--- COMMIT;
+COMMIT;
 
--- START TRANSACTION;
+START TRANSACTION;
 
--- DELETE FROM guestbooks;
--- SELECT * FROM guestbooks
+DELETE FROM guestbooks;
+SELECT * FROM guestbooks;
 
--- ROLLBACK;
+ROLLBACK;
 
 -- Yang tidak bisa menggunakan Transaction
 -- Perintah DDL (Data Definition Language) tidak bisa menggunakan fitur transaction

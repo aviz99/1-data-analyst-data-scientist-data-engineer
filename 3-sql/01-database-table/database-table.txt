@@ -8,13 +8,12 @@ SHOW ENGINES;
 SHOW TABLES;
 
 -- membuat table
-CREATE TABLE barang
-(
-	id INT,
+CREATE TABLE barang(
+ 	id INT,
 	nama VARCHAR(100),
-	harga INT,
+ 	harga INT,
 	jumlah INT
-) ENGINE = InnoDB;
+ ) ENGINE = InnoDB;
 
 -- melihat struktur table
 DESCRIBE barang;
@@ -47,20 +46,29 @@ MODIFY nama VARCHAR(200) NOT NULL ;
 
 -- memberikan default value
 ALTER TABLE barang
-MODIFY jumlah INT NOT NULL DEFAULT 0; 
+MODIFY jumlah INT NOT NULL DEFAULT 0;
 
 ALTER TABLE barang
-MODIFY harga INT NOT NULL DEFAULT 0; 
+MODIFY harga INT NOT NULL DEFAULT 0;
 
 ALTER TABLE barang
 ADD waktu_dibuat TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
 
 INSERT INTO barang (id,nama) VALUES (1,'apel');
 
+-- mengubah nama column
+ALTER TABLE barang
+CHANGE COLUMN harga price INT;
+
+-- mengubah nama table
+ALTER TABLE barang
+RENAME TO stuff;
+
 SELECT * FROM barang;
+SHOW CREATE TABLE barang;
 
 -- membuat ulang table
 TRUNCATE barang;
 
 -- mengahpus table
-DROP TABLE barang; 
+DROP TABLE barang;
