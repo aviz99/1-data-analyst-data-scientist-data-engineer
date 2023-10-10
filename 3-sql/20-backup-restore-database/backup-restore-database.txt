@@ -1,0 +1,24 @@
+-- 10 / 10 / 2023
+-- Day - 7
+-- Backup Database
+-- Saat membuat aplikasi menggunakan database, ada baiknya kita selalu melakukan backup data secara reguler
+-- Untungnya MySQL mendukung proses backup database
+-- Untuk melakukan backup database, kita tidak menggunakan perintah SQL,
+-- melainkan MySQL menyediakan sebuah aplikasi khusus untuk melakukan backup database, namanya adalah mysqldump
+-- https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html
+
+-- melakukan Backup Database
+-- ./bin/mysqldump belajar_mysql --user root --password --result-file=/Users/"windows 10"/Desktop/backup.sql
+
+-- Restore Database
+-- Selain melakukan backup database, di MySQL juga kita bisa melakukan proses restore data dari file hasil backup
+-- Untuk melakukan restore database,
+-- kita bisa menggunakan aplikasi mysql client atau menggunakan perintah SOURCE di MySQL
+
+-- melakukan Import Database
+-- ./bin/mysql --user=root --password belajar_mysql_import</Users/"windows 10"/Dektop/backup.sql
+
+-- Import Database menggunakan SQL
+-- create database belajar_mysql_backup_lagi;
+-- use belajar_mysql_backup_lagi;
+-- source /Users/windows 10/Desktop/backup.sql

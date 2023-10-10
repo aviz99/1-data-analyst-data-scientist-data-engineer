@@ -1,0 +1,67 @@
+-- 04 / 10 / 2023
+-- Day - 4
+-- One To One Relationship
+-- setiap data di sebuah table hanya boleh berelasi ke maksimal 1 data di table lainnya
+
+-- membuat table wallet
+CREATE TABLE wallet
+(
+    id		INT NOT NULL AUTO_INCREMENT,
+    id_customer INT NOT NULL,
+    balance	INT NOT NULL DEFAULT 0,
+    PRIMARY KEY (id),
+    UNIQUE KEY fk_id_customer_unique (id_customer),
+    CONSTRAINT fk_wallet_unique
+		FOREIGN KEY (id_customer) REFERENCES customers (id)
+) ENGINE = InnoDB;
+
+INSERT INTO wallet(id_customer) VALUES (1), (3);
+
+SELECT * FROM wallet;
+
+SELECT customers.email, wallet.balance
+FROM wallet JOIN customers ON (wallet.id_customer = customers.id);
+
+-- One To Many Relationship
+-- relasi antar table dimana satu data bisa digunakan lebih dari satu kali di table relasinya
+
+-- membuat Table Categories
+CREATE TABLE categories
+(
+    id		VARCHAR(10)	NOT NULL,
+    name	VARCHAR(100)	NOT NULL,
+    PRIMARY KEY (id)
+) ENGINE = InnoDB;
+
+-- mengubah Table Products
+ALTER TABLE products
+DROP COLUMN id_category;
+
+ALTER TABLE products
+ADD COLUMN id_category VARCHAR(10);
+
+ALTER TABLE products
+	ADD CONSTRAINT fk_products_categories
+		FOREIGN KEY (id_category) REFERENCES categories (id);
+
+SHOW CREATE TABLE products;
+
+INSERT INTO categories(id, name) VALUES ('C001', 'Makanan'), ('C002', 'Minuman'), ('C003', 'Lain-lain');
+
+SELECT * FROM categories;
+SELECT * FROM products;
+
+UPDATE products
+SET id_category = 'C001'
+WHERE id IN ('P001','P002','P003','P004','P005','P006','P007','P008');
+
+UPDATE products
+SET id_category = 'C002'
+WHERE id IN ('P009','P010','P011','P012');
+
+UPDATE products
+SET id_category = 'C003'
+WHERE id IN ('P013','P014','P015','P016');
+
+SELECT products.id, products.name, categories.name
+FROM products JOIN categories ON (categories.id = products.id_category);

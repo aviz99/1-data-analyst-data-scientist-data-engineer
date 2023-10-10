@@ -1,0 +1,33 @@
+-- 04 / 10 / 2023
+-- Day - 4
+-- Full-Text Search
+-- index spesial untuk melakukan pencarian text
+-- Full-Text Search memungkinkan kita bisa mencari seabgian kata di kolom dengan tipe data String
+-- ini sangat cocok ketika pada kasus kita memang membutuhkan pencarian yang tidak hanya sekedar operasi = (equals, sama dengan)
+
+-- membuat table untuk Full-Text Search
+ALTER TABLE products
+ADD FULLTEXT product_search (name, description);
+
+SHOW CREATE TABLE products;
+
+SELECT * FROM products;
+
+-- menghapus Full-Text Search
+ALTER TABLE products
+DROP INDEX product_search;
+
+-- mencari dengan Natural Language Search
+SELECT * FROM products
+WHERE MATCH(name, description)
+AGAINST('ayam' IN NATURAL LANGUAGE MODE);
+
+-- mencari dengan Boolean Mode
+SELECT * FROM products
+WHERE MATCH(name, description)
+AGAINST('+mie -bakso' IN BOOLEAN MODE);
+
+-- mencari dengan Query Expansion Mode
+SELECT * FROM products
+WHERE MATCH(name, description)
+AGAINST('bakso' WITH QUERY EXPANSION);

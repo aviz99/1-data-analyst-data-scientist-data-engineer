@@ -1,0 +1,125 @@
+-- 28 / 09 / 2023
+-- Day - 2
+-- Insert, Update, Delete, Select, Primary Key & Where Clause
+
+CREATE TABLE products
+(
+	id				VARCHAR(10)			NOT NULL,
+ 	name				VARCHAR(100)			NOT NULL,
+ 	description			TEXT,
+ 	price				INT		UNSIGNED	NOT NULL,
+ 	quantity			INT		UNSIGNED	NOT NULL	DEFAULT 0,
+	created_at			TIMESTAMP			NOT NULL	DEFAULT	CURRENT_TIMESTAMP
+) ENGINE = InnoDB;
+
+SHOW TABLES;
+
+DESCRIBE products;
+
+-- Insert
+-- menambahkan data pada table yang sudah dibuat
+INSERT INTO products(id, name, price, quantity)
+VALUES ('P001', 'Mie Ayam Original', 15000, 100);
+
+INSERT INTO products(id, name, description, price, quantity)
+VALUES ('P002', 'Mie Ayam Bakso Tahu', 'Mie Ayam Original + Bakso Tahu', 20000, 100);
+
+INSERT INTO products(id, name, price, quantity)
+VALUES ( 'P003', 'Mie Ayam Ceker', 20000, 100 ),
+       ( 'P004', 'Mie Ayam Spesial', 25000, 100 ),
+       ( 'P005', 'Mie Ayam Yamin', 15000, 100 );
+
+INSERT INTO products(id, name, price, quantity)
+VALUES ( 'P006', 'Bakso Reguler', 15000, 50 ),
+       ( 'P007', 'Bakso Rudal Ayah Jaja', 30000, 100 ),
+       ( 'P008', 'Bakso Rasengan', 10000, 100 );
+
+INSERT INTO products(id, name, price, quantity)
+VALUES ( 'P009', 'Es Teh Manis Ibu Uche', 3000, 100 ),
+       ( 'P010', 'Es Kopi Berangan-angan', 9000, 100 ),
+       ( 'P011', 'Susu Soda Gembira Ibu Meli3gp', 7000, 100 );
+
+-- Select
+-- digunakan untuk mengambil semua kolom yang ada ditabel atau sebagian kolom saja.
+-- Jika kita ingin mengambil semua kolom, kita bisa gunakan tanda bintang (*).
+-- Jika kita ingin mengambil beberapa atau salah satu kolom saja, kita bisa sebutkan nama-nama kolom yang ingin kita ambil datanya.
+ 
+-- menampilkan seluruh data
+SELECT * FROM products;
+ 
+-- menampilkan beberapa atau salah satu data saja
+ SELECT id, price FROM products;
+
+-- Primary Key
+-- sebuah kolom yang kita tunjuk sebagai id dari tabel tersebut.
+-- Primary key adalah identitas untuk tiap baris data di dalam tabel.
+-- Primary key harus unik / unique ( berbeda value nya ), tidak boleh ada data dengan primary key yang sama.
+-- Kita bisa menunjukkan kolom yang akan kita jadikan primary key.
+-- di mysql tuh bisa atau support untuk menggunakan multiple primary key dengan kombinasi beberapa kolom.
+-- Namun disarankan untuk tetap menggunakan satu kolom ketika membuat primary key.
+-- Kecuali ada kasus khusus, seperti membuat tabel yang berelasi MANY TO MANY ( yang nanti akan kita bahas )
+
+-- menambah primary key ketika membuat table
+ALTER TABLE products
+ADD PRIMARY KEY (id);
+
+-- Where Clause
+-- mengambil data yang ingin dicari
+SELECT * FROM products WHERE quantity = 100;
+SELECT * FROM products WHERE price = 15000;
+SELECT * FROM products WHERE id = 'P001';
+SELECT * FROM products WHERE name = 'Bakso Rudal Ayah Jaja';
+
+DESCRIBE products;
+
+-- Update Data
+-- mengubah data pada table
+ALTER TABLE products
+ADD COLUMN category ENUM ('Makanan', 'Minuman', 'Lain-lain')
+AFTER name;
+
+-- mengubah satu kolom
+UPDATE products
+SET category = 'Makanan'
+WHERE id = 'P001';
+
+-- mengubah beberapa kolom
+UPDATE products
+SET category = 'Makanan',
+    description = 'Mie Ayam + Ceker'
+WHERE id = 'P003';
+
+UPDATE products
+SET category = 'Minuman',
+    description = 'Susu + Soda'
+WHERE id = 'P011';
+
+UPDATE products
+SET category = 'Minuman',
+    description = 'Es + Kopi + Gula Aren'
+WHERE id = 'P010';
+
+UPDATE products
+SET category = 'Minuman',
+    description = 'Es + Teh + Gula'
+WHERE id = 'P009';
+
+UPDATE products
+SET category = 'Makanan',
+    description = 'Bakso Gede + Bakso Medium'
+WHERE id = 'P007';
+
+UPDATE products
+SET category = 'Makanan',
+    description = 'Bakso Reguler + Bakso Medium'
+WHERE id = 'P008';
+
+-- mengubah dengan value di kolom
+UPDATE products
+SET price = price + 5000
+WHERE id = 'P005';
+
+-- Delete Data
+-- menghapus data pada table
+DELETE FROM products WHERE id = 'P011';
+SELECT * FROM products;

@@ -1,0 +1,52 @@
+-- 08 / 10 / 2023
+-- Day - 6
+-- Locking
+
+START TRANSACTION ;
+
+SELECT * FROM guestbooks;
+UPDATE guestbooks
+SET title = 'Diubah Oleh User 2'
+WHERE id = 9;
+
+COMMIT ;
+
+-- Manual Locking
+START TRANSACTION ;
+
+SELECT * FROM products;
+
+SELECT  * FROM products WHERE id = 'P001' FOR UPDATE ;
+
+UPDATE products
+SET quantity = quantity - 10
+WHERE id = 'P001';
+
+COMMIT ;
+
+-- Deadlock
+START TRANSACTION ;
+
+SELECT * FROM products WHERE id = 'P002' FOR UPDATE ;
+
+SELECT * FROM products WHERE id = 'P001' FOR UPDATE ;
+
+-- Lock Table Read
+SELECT * FROM products;
+
+UPDATE products
+SET quantity = 100
+WHERE id = 'P001';
+
+-- Lock Table Write
+SELECT * FROM products;
+
+UPDATE products
+SET quantity = 100
+WHERE id = 'P001';
+
+SELECT * FROM products;
+
+-- Locking Instance
+ALTER TABLE products
+ADD COLUMN sample VARCHAR(100);

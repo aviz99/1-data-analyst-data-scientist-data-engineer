@@ -1,0 +1,45 @@
+-- 04 / 10 / 2023
+-- Day - 4
+-- Indexing
+
+-- kita bisa membuat lebih dari 1 index di table dan setiap kita membuat index, kita bisa membuat index untuk beberapa kolom sekaligus
+-- saat kita membuat index artinya MySQL akan melakukan proses update data di index tiap kali kita menambah,mengubah atau menghapus data di table
+-- Artinya index membuat proses prncarian menjadi lebih cepat, tetapi memperlambat proses manipulasi data
+-- oleh karena itu kita harus bijak saat membuat index
+-- jika kita membuat Primary Key dan Unique Constraint, kita tidak perlu menambahkan lagi index
+-- hal ini dikarenakan MySQL secara otomatis akan menambahkan index pada kolom Primary Key dan Unique Constraint
+
+CREATE TABLE sellers
+(
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL ,
+    name2 VARCHAR(100) ,
+    name3 VARCHAR(100) ,
+    email VARCHAR(100) NOT NULL ,
+    PRIMARY KEY (id),
+    UNIQUE KEY email_unique (email),
+    INDEX name_index (name),
+    INDEX name2_index (name2),
+    INDEX name3_index (name3),
+	-- membuat kombinasi dibawah ini artinya akan mempunyai beberapa kombinasi
+        -- pencarian mencari dengan cepat query jenis seperti ini
+    INDEX name1_name2_name3_index (name, name2, name3)
+) ENGINE = InnoDB;
+
+
+DESCRIBE sellers;
+
+SHOW CREATE TABLE sellers;
+
+SELECT * FROM sellers WHERE name = 'X';
+
+SELECT * FROM sellers WHERE name = 'X' AND name2 = 'X';
+
+SELECT * FROM sellers WHERE name = 'X' AND name2 = 'X' AND name3 = 'X';
+
+-- menambah dan menghapus index
+ALTER TABLE sellers
+ADD INDEX nama_index4 (name4);
+
+ALTER TABLE sellers
+DROP INDEX nama_index4;

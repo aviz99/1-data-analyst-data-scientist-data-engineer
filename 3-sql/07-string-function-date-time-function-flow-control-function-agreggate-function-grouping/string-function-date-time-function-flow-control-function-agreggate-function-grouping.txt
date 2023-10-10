@@ -1,0 +1,96 @@
+-- 29 / 09 / 2023
+-- Day - 3
+-- String Function, Date & Time Function, Flow Control Function, Agreggate Function & Grouping
+
+-- String Function
+-- menggunakan string function
+
+SELECT id,
+       LOWER(name) as 'Name Lower',
+       LENGTH(name) as 'Name Length'
+FROM products;
+
+SELECT id,
+       LOWER(name) as 'Name Lower',
+       UPPER(name) as 'Name Upper',
+       LENGTH(name) as 'Name Length'
+FROM products;
+
+-- Date & Time Functions
+-- Extract digunakan untuk mengambil sebagian kecil data dari timestamp
+
+-- menambahkan kolom timestamp
+SELECT id, created_at,
+       EXTRACT(YEAR FROM created_at) as Year,
+       EXTRACT(MONTH FROM created_at) as Month
+FROM products;
+
+SELECT id, created_at, YEAR(created_at), MONTH(created_at) FROM products;
+
+-- Flow Control Function
+-- menggunakan control flow Case
+SELECT id, category,
+	CASE category
+	    WHEN 'Makanan' THEN 'Sedap'
+	    WHEN 'Minuman' THEN 'Segar'
+	    ELSE 'Apa Itu ?'
+	    END AS Category
+FROM products;
+
+-- menggunakan control flow If
+SELECT id, price,
+       IF(price <= 15000, 'Murah', IF(price <= 20000, 'Mahal', 'Mahal Bangat')) AS 'Mahal ?'
+FROM products;
+
+-- menggunakan control flow IfNull
+SELECT id, name, IFNULL(description, 'Kosong') FROM products;
+
+-- Aggregate Function
+-- misal, kita ingin melihat harga paling mahal di table product, atau harga termurah, atau rata-rata harga produk, atau total jumlah data di table dan lain-lain
+-- digunakan untuk mengagregasi atau aggregate beberapa data kita ingin mengambil sesuatu dari beberapa data tersebut
+-- contoh nya mencari harga paling mahal, mencari harga paling murah, menghitung total jumlah data dalam table, melihat rata-rata harga barang
+-- hanya bisa melakukan dengan 1 data
+
+-- menggunakan aggregate function
+SELECT COUNT(id) AS 'Stok Product' FROM products;
+
+SELECT SUM(price) AS 'Total Harga' FROM products;
+
+SELECT AVG(price) AS 'Rata-Rata Harga' FROM products;
+
+SELECT MAX(price) AS 'Product Termahal' FROM products;
+
+SELECT MIN(price) AS 'Product Termurah' FROM products;
+
+-- Grouping
+-- digunakan untuk jika kita menggunakan aggregate function
+
+-- menggunakan Group By
+SELECT category, COUNT(id) AS 'Stok Product'
+FROM products
+GROUP BY category;
+
+SELECT category, MAX(price) AS 'Product Termahal'
+FROM products
+GROUP BY category;
+
+SELECT category, MIN(price) AS 'Product Termurah'
+FROM products
+GROUP BY category;
+
+SELECT category, AVG(price) AS 'Rata-Rata Harga'
+FROM products
+GROUP BY category;
+
+SELECT category, SUM(price) AS 'Total Harga'
+FROM products
+GROUP BY category;
+
+-- Having Clause
+-- digunakan untuk memfilter atau menyaring hasil aggregate function
+
+-- menggunakan Having Clause
+SELECT category, COUNT(id) AS Total
+FROM products
+GROUP BY category
+HAVING Total > 5;

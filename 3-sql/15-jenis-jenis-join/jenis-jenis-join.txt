@@ -1,0 +1,68 @@
+-- 08 / 10 / 2023
+-- Day - 6
+-- Jenis-Jenis Join
+-- Inner Join, Left Join, Right Join, Cross Join
+
+-- Inner Join
+-- mekanisme JOIN, dimana terdapat relasi antara tabel pertama dan tabel kedua
+-- Jika ada data di tabel pertama yang tidak memiliki relasi di table kedua ataupun sebaliknya,
+-- maka hasil INNER JOIN tidak akan ditampilkan
+-- Ini adalah default JOIN di MySQL
+-- Jika kita menggunakan JOIN seperti yang sudah kita praktekan sebelumnya, sebenarnya itu akan melakukan INNER JOIN
+
+SELECT * FROM categories;
+INSERT INTO categories(id,name)
+VALUES ('C004', 'Oleh-Oleh'),
+       ('C005', 'Gadget');
+SELECT * FROM categories;
+
+INSERT INTO products(id, name, price, quantity )
+VALUES ('X001', 'X Satu', 25000, 200),
+       ('X002', 'X Dua', 10000, 300),
+       ('X003', 'X Tiga', 15000, 500);
+SELECT * FROM products;
+
+-- melakukan Inner Join
+SELECT * FROM categories
+INNER JOIN products ON (products.id_category = categories.id);
+
+-- Left Join
+-- mekanisme JOIN seperti INNER JOIN, namun semua data di table pertama akan diambil juga
+-- Jika ada yang tidak memiliki relasi di table kedua, maka hasilnya akan NULL
+
+-- melakukan Left Join
+SELECT * FROM categories
+LEFT JOIN products ON (products.id_category = categories.id);
+
+-- Right Join
+-- mekanisme JOIN seperti INNER JOIN, namun semua data di table kedua akan diambil juga
+-- Jika ada yang tidak memiliki relasi di table pertama, maka hasilnya akan NULL
+
+-- melakukan Right Join
+SELECT * FROM categories
+RIGHT JOIN products ON (products.id_category = categories.id);
+
+-- Cross Join
+-- salah satu JOIN yang sangat jarang sekali digunakan
+-- CROSS JOIN adalah melakukan join dengan cara mengkalikan data di tabel pertama dengan data di table kedua
+-- Artinya jika ada 5 data di tabel pertama, dan 5 data di tabel kedua, akan menghasilkan 25 kombinasi data (5 x 5)
+-- Sekali lagi perlu diingat, ini adalah JOIN yang sangat jarang sekali digunakan
+
+-- melakukan Cross Join
+SELECT * FROM categories
+CROSS JOIN products;
+
+-- membuat Table Perkalian
+CREATE TABLE numbers
+(
+    id	INT	NOT NULL,
+    PRIMARY KEY (id)
+) ENGINE = InnoDB;
+
+INSERT INTO numbers(id) VALUES (1), (2), (3), (4), (5), (6), (7), (8), (9), (10);
+
+-- Cross Join Table Perkalian
+SELECT numbers1.id, numbers2.id, (numbers1.id * numbers2.id)
+FROM numbers AS numbers1
+	CROSS JOIN numbers AS numbers2
+ORDER BY numbers1.id, numbers2.id;

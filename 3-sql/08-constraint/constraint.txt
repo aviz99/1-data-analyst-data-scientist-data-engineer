@@ -1,0 +1,48 @@
+-- 29 / 09 / 2023
+-- Day - 3
+-- Constraint
+-- digunakan untuk menjaga data di table tetap baik
+-- constraint sangat bagus ditambahkan untuk menjaga terjadi validasi yang salah di program kita, sehingga data yang masuk ke database tetap akan terjaga
+
+-- Unique Constraint
+-- constraint yang memastikan bahwa data kita tetap unique (berbeda tidak sama)
+
+-- membuat table dengan unique constraint
+CREATE TABLE customers
+(
+    id INT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(100) NOT NULL,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100),
+    PRIMARY KEY(id),
+    UNIQUE KEY email_unique (email)
+) ENGINE = InnoDB;
+
+-- menambah dan menghapus unique constraint
+ALTER TABLE customers
+DROP CONSTRAINT email_unique;
+
+ALTER TABLE customers
+ADD CONSTRAINT email_unique UNIQUE (email);
+
+INSERT INTO customers(email, first_name, last_name)
+VALUES ('otongsurotong@gmail.com', 'Otong', 'Surotong'),
+       ('kaylanatasya@gmail.com', 'Kayla', 'Natasya'),
+       ('reginaaldrin@gmail.com', 'Regina', 'Aldrin');
+       
+DELETE FROM customers
+WHERE email = 'ucupsurucup@gmail.com';
+
+INSERT INTO products(id, name, category, price, quantity)
+VALUES ('P016','Permen','Lain-lain',500,1000);
+
+UPDATE products
+SET price = 1000
+WHERE id = 'P016';
+
+ALTER TABLE products
+ADD CONSTRAINT price_check CHECK ( price >= 1000 );
+
+SHOW CREATE TABLE products;
+SELECT * FROM products;
+

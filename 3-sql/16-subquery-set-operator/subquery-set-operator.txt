@@ -1,0 +1,110 @@
+-- 08 / 10 / 2023
+-- Day - 6
+-- Subquery
+-- kita mencari data di table tertentu tetapi kondisi Where nya itu adalah hasil dari query yang lain
+-- Contoh, kita ingin mencari products yang harganya diatas harga rata-rata, artinya kita akan melakukan
+-- SELECT dengan WHERE price > harga rata, dimana harga rata-rata perlu kita hitung menggunakan query SELECT lainnya
+-- menggunakan aggregate function AVG
+
+-- melakukan Subquery di Where Clause
+SELECT * FROM products
+WHERE price > (SELECT AVG(price) FROM products);
+
+-- melakukan Subquery di From
+-- Misal kita ingin mencari data dari hasil query SELECT, itu bisa kita lakukan di MySQL
+UPDATE products
+SET price = 1000000
+WHERE id = 'X003';
+
+SELECT MAX(price)
+FROM (SELECT price
+	  FROM categories
+				INNER JOIN products
+							ON (products.id_category = categories.id)) AS cp;
+
+SELECT MAX(cp.price)
+FROM (SELECT price
+	  FROM categories
+				INNER JOIN products
+							ON (products.id_category = categories.id)) AS cp;
+
+SELECT MAX(cp.price) FROM (SELECT price FROM categories
+JOIN products ON (products.id_category = categories.id)) AS cp;
+
+-- Set Operator
+-- dimana ini adalah operasi antara hasil dari dua SELECT query
+-- Union, Union All, Intersect & Minus
+
+-- membuat Table Guest Book
+CREATE TABLE guestbooks
+(
+    id INT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(100) NOT NULL,
+    title VARCHAR(200) NOT NULL,
+    content TEXT,
+    PRIMARY KEY (id)
+) ENGINE = InnoDB;
+
+SELECT * FROM customers;
+
+INSERT INTO guestbooks(email, title, content)
+VALUES ('guest@gmail.com', 'Hello', 'Hello'),
+       ('guest2@gmail.com', 'Hello', 'Hello'),
+       ('guest3@gmail.com', 'Hello', 'Hello'),
+       ('otongsurotong@gmail.com', 'Hello', 'Hello'),
+       ('otongsurotong@gmail.com', 'Hello', 'Hello'),
+       ('otongsurotong@gmail.com', 'Hello', 'Hello');
+SELECT * FROM guestbooks;
+
+-- Union
+-- operasi menggabungkan dua buah SELECT query, dimana jika terdapat data yang duplikat,
+-- data duplikatnya akan dihapus dari hasil query
+
+-- melakukan Query Union
+SELECT DISTINCT email FROM customers
+UNION
+SELECT DISTINCT email FROM guestbooks;
+
+-- Union All
+-- operasi yang sama dengan UNION, namun data duplikat tetap akan ditampilkan di hasil query nya
+
+-- melakukan Query Union All
+SELECT DISTINCT email FROM customers
+UNION ALL
+SELECT DISTINCT email FROM guestbooks;
+
+SELECT email FROM customers
+UNION ALL
+SELECT email FROM guestbooks;
+
+SELECT emails.email, COUNT(emails.email) FROM
+(
+	SELECT email FROM customers
+	UNION ALL
+	SELECT email FROM guestbooks
+) AS emails GROUP BY emails.email;
+
+-- Intersect
+-- operasi menggabungkan dua query, namun yang diambil hanya data yang terdapat pada hasil query pertama dan query kedua
+-- Data yang tidak hanya ada di salah satu query, kan dihapus di hasil operasi INTERSECT
+-- Data nya muncul tidak dalam keadaan duplikat
+-- Sayangnya, MySQL tidak memiliki operator INTERSECT, dengan demikian untuk melakukan operasi INTERSECT,
+-- kita harus lakukan secara manual menggunakan JOIN atau SUBQUERY
+
+-- melakukan Query Intersect
+SELECT DISTINCT email FROM customers
+WHERE email IN (SELECT DISTINCT email FROM guestbooks);
+
+SELECT DISTINCT customers.email FROM customers
+INNER JOIN guestbooks ON (guestbooks.email = customers.email);
+
+-- Minus
+-- operasi dimana query pertama akan dihilangkan oleh query kedua
+-- Artinya jika ada data di query pertama yang sama dengan data yang ada di query kedua,
+-- maka data tersebut akan dihapus dari hasil query MINUS
+-- Sayang nya, di MySQL juga tidak ada operator MINUS, namun hal ini bisa kita lakukan menggunakan JOIN
+
+-- melakukan Query Minus
+SELECT DISTINCT customers.email, guestbooks.email FROM customers
+LEFT JOIN guestbooks ON (guestbooks.email = customers.email)
+WHERE guestbooks.email IS NULL;

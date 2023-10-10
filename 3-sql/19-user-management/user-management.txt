@@ -1,0 +1,42 @@
+-- 10 / 10 / 2023
+-- Day - 7
+-- User Management
+-- Secara default, mysql membuat root user sebagai super administrator
+-- Namun best practice nya, saat kita menjalankan MySQL dengan aplikasi yang kita buat,
+-- sangat disarankan tidak menggunakan user root
+-- Lebih baik kita buat user khusus untuk tiap aplikasi, bahkan kita bisa batasi hak akses user tersebut,
+-- seperti hanya bisa melakukan SELECT, dan tidak boleh melakukan INSERT, UPDATE atau DELETE
+-- Hak Akses dan User
+-- Dalam user management MySQL, kita akan mengenal istilah Hak Akses dari User
+-- Ada banyak sekali hak akses di MySQL
+-- Kita bisa melihatnya di daftar tabel yang terdapat di halaman berikut :
+-- https://dev.mysql.com/doc/refman/8.0/en/grant.html
+
+-- membuat dan menghapus User
+CREATE USER 'ali'@'localhost';
+CREATE USER 'havizni'@'%';
+
+DROP USER 'ali'@'localhost';
+DROP USER 'havizni'@'%';
+
+-- menambahkan dan menghapus Hak Akses ke User
+GRANT SELECT ON belajar_mysql.* TO 'ali'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON belajar_mysql.* TO 'havizni'@'%';
+
+SHOW GRANTS FOR 'ali'@'localhost';
+SHOW GRANTS FOR 'havizni'@'%';
+
+REVOKE SELECT ON belajar_mysql.* FROM 'ali'@'localhost';
+REVOKE SELECT, INSERT, UPDATE, DELETE ON belajar_mysql.* FROM 'havizni'@'%';
+
+-- mengubah Password untuk User
+SET PASSWORD FOR 'ali'@'localhost' = 'rahasia';
+SET PASSWORD FOR 'havizni'@'%' = 'rahasia';
+
+INSERT INTO guestbooks(email, title, content) VALUES ('contoh@gmail.com','Hello','Hello');
+
+CREATE TABLE contoh
+(
+    id INT NOT NULL,
+    PRIMARY KEY (id)
+) ENGINE = InnoDB;

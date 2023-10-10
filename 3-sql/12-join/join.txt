@@ -1,0 +1,41 @@
+-- 04 / 10 / 2023
+-- Day - 4
+-- Join
+
+-- melakukan Join Table
+SELECT * FROM wishlist JOIN products ON (wishlist.id_product = products.id);
+
+SELECT products.id, products.name, wishlist.description
+FROM wishlist
+JOIN products ON (wishlist.id_product = products.id);
+
+SELECT p.id, p.name, w.description
+FROM wishlist AS w
+		JOIN products AS p ON (w.id_product = p.id);
+        
+SELECT w.id AS id_wishlist,
+	   p.id AS id_products,
+       p.name AS product_name,
+       w.description AS wishlist_desc
+FROM wishlist AS w
+		JOIN products AS p ON (w.id_product = p.id);
+
+-- membuat relasi baru ke Table Customers
+ALTER TABLE wishlist
+ADD COLUMN id_customer INT;
+
+ALTER TABLE wishlist
+ADD CONSTRAINT fk_wishlist_customer
+FOREIGN KEY (id_customer) REFERENCES customers (id);
+
+UPDATE wishlist
+SET id_customer = 1
+WHERE id = 1;
+
+-- melakukan Join Multiple Table
+SELECT customers.email, products.id, products.name, wishlist.description
+FROM wishlist
+JOIN products ON (products.id = wishlist.id_product)
+JOIN customers ON (customers.id = wishlist.id_customer);
+
+SELECT * FROM wishlist;

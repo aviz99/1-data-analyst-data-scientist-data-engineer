@@ -1,0 +1,98 @@
+-- 28 / 09 / 2023
+-- Day - 2
+-- Alias & Where Operator
+
+-- Alias
+-- digunakan untuk mengubah nama kolom atau nama table ketika melakukan Select data.
+-- seperti ada nama kolom nya kepanjangan itu bisa kita persingkat
+-- atau ada nama kolom nya yang representasi nya kurang bagus terus kita ubah hasil select nya
+
+-- alias untuk kolom
+SELECT id AS 'Kode',
+       name AS 'Nama',
+       category AS 'Kategori',
+       description AS 'Keterangan',
+       price AS 'Harga',
+       quantity AS 'Jumlah'
+FROM products;
+
+-- alias untuk table
+SELECT produk.id AS 'Kode',
+       produk.name AS 'Nama',
+       produk.category AS 'Kategori',
+       produk.description AS 'Keterangan',
+       produk.price AS 'Harga',
+       produk.quantity AS 'Jumlah'
+FROM products AS produk;
+
+
+INSERT INTO products(id,name,category,price,quantity)
+VALUES ('P011', 'Milkshake', 'Minuman', 6000, 200),
+       ('P012', 'Orange Juice', 'Minuman', 10000, 300),
+       ('P013', 'Keripik Pedas', 'Lain-lain', 2000, 1000),
+       ('P014', 'Kerupuk', 'Lain-lain', 2500, 300),
+       ('P015', 'Es Krim', 'Lain-lain', 5000, 500);
+
+-- Where Operator
+-- Operator Perbandingan
+-- = sama dengan
+-- <> atau != tidak sama dengan
+-- <= kurang dari sama dengan
+-- < kurang dari
+-- >= lebih dari sama dengan
+-- > lebih dari
+
+-- jika quantity nya diatas > 100
+SELECT * FROM products WHERE quantity > 100;
+SELECT * FROM products WHERE quantity >= 100;
+
+SELECT * FROM products WHERE category != 'Makanan';
+SELECT * FROM products WHERE category <> 'Makanan';
+
+-- Operator Logika
+-- AND kedua nilai harus bernilai TRUE jika hanya 1 bernilai TRUE maka output yang dihasilkan adalah FALSE
+-- OR jika salah satu bernilai TRUE maka akan menghasilkan TRUE
+
+-- mencari data dengan operator AND
+SELECT * FROM products WHERE quantity > 100 AND price > 20000;
+SELECT * FROM products WHERE category = 'Makanan' AND price < 20000;
+
+-- mencari data dengan operator OR
+SELECT * FROM products WHERE quantity > 100 OR price > 20000;
+
+-- prioritas dengan kurung ()
+SELECT * FROM products WHERE (category = 'Makanan' OR quantity > 500) AND price > 20000;
+
+-- LIKE operator
+-- operator ini digunakan untuk mencari sebagian data dalam string
+-- LIKE operator sangat lambat
+-- Hasil operator LIKE
+-- LIKE 'b%' string dengan awalan b
+-- LIKE '%b' string dengan akhiran b
+-- LIKE '%ali%' string berisi ali
+-- NOT LIKE Tidak LIKE
+
+-- mencari menggunakan LIKE operator
+SELECT * FROM products WHERE name LIKE 'mie%';
+SELECT * FROM products WHERE name LIKE '%bakso%';
+
+-- NULL operator
+-- operator ini digunakan untuk mencari atau membandingkan nilai yang NULL
+
+-- mencari menggunakan IS NULL operator
+SELECT * FROM products WHERE description IS NULL;
+
+-- mencari menggunakan IS NOT NULL operator
+SELECT * FROM products WHERE description IS NOT NULL;
+
+-- BETWEEN operator
+-- mencari menggunakan BETWEEN operator
+SELECT * FROM products WHERE price BETWEEN 10000 AND 20000;
+SELECT * FROM products WHERE price NOT BETWEEN 10000 AND 20000;
+
+-- IN operator
+-- operator untuk melakukan pencarian sebuah kolom dengan beberapa nilai
+
+-- mencari menggunakan IN operator
+SELECT * FROM products WHERE category IN ('Makanan', 'Minuman'); 
+SELECT * FROM products;

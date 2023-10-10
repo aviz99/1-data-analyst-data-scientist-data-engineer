@@ -1,0 +1,35 @@
+-- 29 / 09 / 2023
+-- Day - 3
+-- Order By, Limit Select & Distinct Data
+
+-- Order By
+-- digunakan untuk mengurutkan data berdasarkan kolom yang dipilih dan jenis urutan (ASC atau DESC)
+-- kita juga bisa mengurutkan tidak hanya terhadap satu kolom tapi beberapa kolom
+
+-- mengurutkan data
+SELECT * FROM products ORDER BY category;
+SELECT id, category, name FROM products ORDER BY category;
+SELECT id, category, price FROM products ORDER BY category ASC, price DESC;
+
+-- Limit Clause
+-- digunakan untuk membatasi jumlah data dan meng-skip sejumlah data yang tidak ingin kita lihat
+-- Limit biasa nya digunakan saat melakukan paging diaplikasi kita
+
+-- memabatasi hasil query
+SELECT * FROM products ORDER BY id LIMIT 5;
+SELECT * FROM products ORDER BY id LIMIT 3;
+
+-- meng-skip atau offset hasil query
+SELECT * FROM products ORDER BY id LIMIT 5, 5;
+
+SELECT * FROM products ORDER BY id LIMIT 10, 5;
+
+SELECT * FROM products ORDER BY id LIMIT 15, 5;
+
+-- Select Distinct Data
+-- digunakan untuk menghilangkan data - data duplikat
+
+-- menghilangkan data duplikat
+-- jika kita ingin melakukan Select Distinct maka kita harus memastikan kolom itu 
+-- bisa diambil secara distinct (yang sama atau memiliki data duplikat di kolom tersebut)
+SELECT DISTINCT category FROM products;

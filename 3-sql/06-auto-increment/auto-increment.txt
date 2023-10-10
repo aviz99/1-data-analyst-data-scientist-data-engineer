@@ -1,0 +1,31 @@
+-- 29 / 09 / 2023
+-- Day - 3
+-- Auto Increment
+-- digunakan untuk menandai bahwa suatu primary key datanya diisi secara otomatis dari angka terakhir + 1
+-- auto increment hanya bisa di primary key saja
+
+-- membuat table dengan auto increment
+CREATE TABLE admin
+(
+    id INT NOT NULL AUTO_INCREMENT,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    PRIMARY KEY (id)
+) ENGINE = InnoDB;
+
+-- memasukkan data tanpa id
+INSERT INTO admin(first_name, last_name)
+VALUES ( 'Nofariza', 'Saputra'),
+       ( 'Ucup', 'Surucup'),
+       ( 'Doddy', 'Ferdiansyah');
+
+INSERT INTO admin(first_name, last_name)
+VALUES ( 'Cindy', 'Gulla');
+
+INSERT INTO admin(first_name, last_name)
+VALUES ( 'Jacquelyn', 'Chandra');
+       
+SELECT * FROM admin ORDER BY id;
+
+-- melihat id terakhir
+SELECT LAST_INSERT_ID();

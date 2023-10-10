@@ -1,0 +1,68 @@
+-- 04 / 10 / 2023
+-- Day - 4
+-- Table Relationship
+
+-- membuat table dengan Foreign Key
+CREATE TABLE wishlist
+(
+	id	INT	NOT NULL AUTO_INCREMENT,
+    id_product	VARCHAR(10) NOT NULL,
+    description	TEXT,
+    PRIMARY KEY (id),
+    CONSTRAINT fk_wishlist_product
+		FOREIGN KEY (id_product) REFERENCES products (id)
+) ENGINE = InnoDB;
+
+-- menambah dan menghapus Foreign Key
+ALTER TABLE wishlist
+	DROP CONSTRAINT fk_wishlist_product;
+    
+ALTER TABLE wishlist
+	ADD CONSTRAINT fk_wishlist_product
+		FOREIGN KEY (id_product) REFERENCES products (id);
+
+DESCRIBE wishlist;
+
+SHOW CREATE TABLE wishlist;
+
+-- keuntung menggunakan Foreign Key
+-- Foreign Key memastikan bahwa data yang kita masukkan ke dalam kolom tersebut harus tersedia di table reference nya
+-- selain itu saat kita menghapus data di table reference, MySQL akan mengecek apakah id nya digunakan di Foreign Key
+-- di table lain, jika digunakan, maka secara otomatis MySQL akan menolak proses delete di table reference tersebut
+
+-- ketika menghapus data berelasi
+-- ketika kita menghapus data yang berelasi, maka secara otomatis MySQL akan menolak operasi delete tersebut
+-- kita bisa mengubah fitur ini jika kita mau, ada banyak hal yang bisa dilakukan ketika data berelasi dihapus,
+-- defaultnya memang akan ditolak(RESTRICT)
+
+INSERT INTO wishlist(id_product, description)
+VALUES ('P001', 'Makanan Kesukaan');
+
+INSERT INTO wishlist(id_product, description)
+VALUES ('SALAH', 'Makanan Kesukaan');
+
+SELECT * FROM products;
+
+DELETE FROM products
+WHERE id = 'P001';
+
+-- mengubah Behavior menghapus relasi
+ALTER TABLE wishlist
+	ADD CONSTRAINT fk_wishlist_product
+		FOREIGN KEY (id_product) REFERENCES products (id)
+			ON DELETE CASCADE ON UPDATE CASCADE;
+
+INSERT INTO products(id, name, category, price, quantity)
+VALUES ('Pxxx', 'Contoh', 'Lain-lain', 1000, 1000);
+
+INSERT INTO wishlist(id_product, description)
+VALUES ('Pxxx', 'Makanan Kesukaan');
+
+DELETE FROM products
+WHERE id = 'Pxxx';
+
+SELECT * FROM wishlist;
+
+ALTER TABLE wishlist
+	ADD CONSTRAINT fk_wishlist_product
+		FOREIGN KEY (id_product) REFERENCES products (id);

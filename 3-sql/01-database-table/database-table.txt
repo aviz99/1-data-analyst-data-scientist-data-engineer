@@ -1,0 +1,66 @@
+-- 27 / 09 / 2023
+-- Day - 1
+-- Tables & Databases
+
+SHOW ENGINES;
+
+-- menampilkan table
+SHOW TABLES;
+
+-- membuat table
+CREATE TABLE barang
+(
+	id INT,
+	nama VARCHAR(100),
+	harga INT,
+	jumlah INT
+) ENGINE = InnoDB;
+
+-- melihat struktur table
+DESCRIBE barang;
+DESC barang;
+SHOW CREATE TABLE barang;
+
+-- mengubah isi table
+ALTER TABLE barang
+ADD COLUMN deskripsi TEXT;
+
+ALTER TABLE barang
+ADD COLUMN salah TEXT;
+
+ALTER TABLE barang
+DROP COLUMN salah;
+
+-- mengubah isi table berdasarkan posisi terhadap setelah nya pada table
+ALTER TABLE barang
+MODIFY nama VARCHAR(200) AFTER deskripsi;
+
+-- mengubah isi table berdasarkan posisi awal table
+ALTER TABLE barang
+MODIFY nama VARCHAR(200) FIRST ;
+
+ALTER TABLE barang
+MODIFY id INT NOT NULL ;
+
+ALTER TABLE barang
+MODIFY nama VARCHAR(200) NOT NULL ;
+
+-- memberikan default value
+ALTER TABLE barang
+MODIFY jumlah INT NOT NULL DEFAULT 0; 
+
+ALTER TABLE barang
+MODIFY harga INT NOT NULL DEFAULT 0; 
+
+ALTER TABLE barang
+ADD waktu_dibuat TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
+
+INSERT INTO barang (id,nama) VALUES (1,'apel');
+
+SELECT * FROM barang;
+
+-- membuat ulang table
+TRUNCATE barang;
+
+-- mengahpus table
+DROP TABLE barang; 
