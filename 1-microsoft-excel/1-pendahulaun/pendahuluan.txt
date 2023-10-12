@@ -1,0 +1,32 @@
+11 / 10 / 2023
+Day - 1
+Pendahuluan Microsoft Excel
+
+- 4 Kasus Data Analyst Menggunakan Microsoft Excel
+
+1. Adhoc Request
+-> Buat mengirimkan data, tapi biasanya harus di clean dulu.
+Contoh: Ketika tim Marketing atau tim Operasional yang ingin meminta data customer tertentu yang cukup spesifik yang tidak bisa di download
+	dashboard Power BI dan yang lain nya, disitulah kita akan mengekstrak data nya dari database production lalu kita copy paste data
+	tersebut ke Microsoft Excel lalu kita melakukan cek dengan data cleaning terlebih dahulu, jika sudah kita kirim saja data yang
+	sudah di cleaning ke tim Marketing atau tim Operasional lewat email.
+
+2. Report & Analysis
+-> Atasan biasanya ingin meminta report & analysis sederhana secara secepatnya.
+Contoh: Tidak mungkin kita membuat dashboard untuk hal ini dipower bi atau tableau karena memerlukan waktu yang cukup lama, cara cepat nya
+	adalah kita akan mengekstrak data nya dari database lalu copy paste kan ke microsoft excel lalu di pivot table lalu di cleaning data
+	terlebih dahulu jika diperlukan setelah dipivot kita membuat visualisasi sederhana saja dan jangan lupa diberi komentar atau insight nya
+	divisualisasi data atau pivot table tersebut.
+
+3. Data Inspection
+-> Melakukan data inspection dan data reconciliation karena UI excel yang mudah.
+Contoh: Kita ekstrak data nya jika data nya masih kecil lalu kit copy paste ke excel lalu kita lakukan data inspection jika misal nya ada yang
+	aneh kita kabarkan ke tim Ops (Operasional) biasa nya data inspection yang dilakukan di excel ketika memang tidak punya data engineer
+	data infrastructure nya juga kurang bagus dan kita bisa melakukan data reconciliation nya juga mencocokan data yang kita punya dengan
+	data yang dimiliki oleh tim lain juga di excel.
+
+4. Papan Tulis
+-> Tools untuk menelaskan logic/konsep dari solusi yang kita bawa ke atasan.
+Contoh: Untuk menjelaskan suatu konsep atau suatu logic dari solusi yang kita bawa ke bos jadi bos penasaran nih logika nya 
+	gimana make sense gak nih dari prinsip - prinsip atau perhitungan yang kita bawa dengan permasalahan yang kita bawa atau sebaliknya
+	biasa nya menjelaskan konsep statistika ke bawahan. 

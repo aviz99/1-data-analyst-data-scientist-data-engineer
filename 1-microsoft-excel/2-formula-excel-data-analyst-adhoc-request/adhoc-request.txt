@@ -1,0 +1,114 @@
+## 11 / 10 / 2023
+## Day - 1
+## Adhoc Request
+
+# Empat Problem Summary
+1. Adhoc Request
+2. Report & Analysis
+3. Data Inspection
+4. Papan Tulis
+
+1. Adhoc Request
+- Adjusting Columns
+-> Kita mempunyai sebuah data yang kita sebut data marketing data ini kita peroleh dari tim lain dan diminta oleh tim lain
+-> Cara untuk Adjusting Columns untuk sebuah data
+-> Klik ujung kiri atas columns lalu klik 2x pada ujung sisi cell columns
+
+- Filter
+-> Cara Filter
+-> Tekan " CTRL + SHIFT + L "
+
+- Data Format
+-> Columns Tanggal Biasanya Yang paling Bermasalah Dengan Format
+-> Cara merubah data tanggal yang benar adalah
+-> Pilih tab "Data" lalu pilih "Text To Columns" lalu pilih "Fixed Width" lalu pilih "next" lalu pilih "next" lagi kemudian pilih "date"
+-> pilih format "MDY" lalu pilih "finish"
+
+- Sort Data
+
+- Freeze Panes
+-> Pilih "View" lalu pilih "Freeze Panes" lalu pilih "Unfreeze Panes"
+-> Biasa nya teman-teman mau scroll ke bawah itukan mau liat header nya kan
+-> Untuk mempermudah mengetahui tab column jika di scroll
+-> Cara nya Pilih "View" lalu pilih "Freeze Panes" lalu pilih "Freeze Top Row"
+
+- REPLACE, SUBSTITUTE
+- REPLACE
+-> Untuk mengganti format atau nama column
+-> =REPLACE(replace_column_ke_n;replace_column_ke_n_angka;berapa_banyak_yang_kita_ganti_angka;"mata uang")
+
+- SUBSTITUTE
+-> Untuk mengganti format column yang spesifik
+-> =SUBSTITUTE(Text;"old_text";"new_text)
+
+- CONCATENATE, LEN, TRIM
+- CONCATENATE
+-> Untuk menggabungkan 2 columns
+-> =CONCATENATE(Text1;Text2;Text3;...;Textn)
+
+- LEN
+-> Untuk mengukur berapa banyak data pada table
+-> =LEN(Text)
+-> Biasa nya untuk mengecek KTP
+
+- TRIM
+-> Untuk membersihkan data / data cleaning pada data yang belum dirapihkan
+-> =TRIM(Text)
+
+- LEFT, RIGHT, MID
+- LEFT
+-> Untuk mengekstrak data dari kiri atau berdasarkan data diawal nya
+-> =LEFT(Text;jumlah_char_yang_ingin_diambil_diawal)
+
+- RIGHT
+-> Untuk mengekstrak data dari kanan atau berdasarkan data diakhir nya
+-> =RIGHT(Text;jumlah_char_yang_ingin_diambil_diakhir)
+
+- MID
+-> Untuk mengekstrak data dari tengah
+-> =MID(Text;start_num;jumlah_char_yang_ingin_diambil)
+
+- IF, IFS, IFLEFT, IFMID, IFRIGHT, IFAND, IFOR, IFERROR
+- IF
+-> Membuat sebuah nilai berdasarkan pernyataan yang mau diuji
+-> =IF(pernyataan1(>,<,=,>=,<=,!=,!,<>)pernyataan2;"value_true";"value_false")
+-> Cell Reference untuk mereferensi atau mengacu pada sebuah cell
+-> =IF(pernyataan1(>,<,=,>=,<=,!=,!,<>)pernyataan2(mengacu pada cell kriteria)+F4;"value_true"(mengacu pada cell kriteria)+F4;
+-> "value_false"(mengacu pada cell kriteria)+F4)
+
+- IFS
+-> Membuat sebuah nilai berdasarkan pernyataan yang mau diuji secara nested (bersarang)
+-> =IFS(pernyataan1(>,<,=,>=,<=,!=,!,<>)pernyataan2(mengacu pada cell kriteria)+F4;
+-> "value_true"(mengacu pada cell kriteria)+F4;pernyataan2(>,<,=,>=,<=,!=,!,<>)pernyataan3(mengacu pada cell kriteria)+F4;
+-> "value_true"(mengacu pada cell kriteria)+F4;pernyataan4(>,<,=,>=,<=,!=,!,<>)pernyataan5(mengacu pada cell kriteria)+F4;
+-> "value_true"(mengacu pada cell kriteria)+F4;pernyataanfalse(>,<,=,>=,<=,!=,!,<>)pernyataanfalse(mengacu pada cell kriteria)+F4;
+-> "value_false"(mengacu pada cell kriteria)+F4
+
+IFLEFT
+-> Membuat sebuah nilai berdasarkan pernyataan yang mau diuji berdasarkan data paling awal
+-> =IF(LEFT(Text;jumlah_char_yang_ingin_diambil_diawal)(>,<,=,>=,<=,!=,!,<>)pernyataan2;"value_true";"value_false")
+
+IFMID
+-> Membuat sebuah nilai berdasarkan pernyataan yang mau diuji berdasarkan data yang ingin diambil
+-> =IF(MID(Text;start_num;jumlah_char_yang_ingin_diambil_diakhir)(>,<,=,>=,<=,!=,!,<>)pernyataan2;"value_true";"value_false")
+
+IFRIGHT
+-> Membuat sebuah nilai berdasarkan pernyataan yang mau diuji berdasarkan data paling akhir
+-> =IF(RIGHT(Text;jumlah_char_yang_ingin_diambil_diakhir)(>,<,=,>=,<=,!=,!,<>)pernyataan2;"value_true";"value_false")
+
+IFAND
+-> Membuat sebuah nilai berdasarkan pernyataan yang mau diuji jika kedua pernyataan tersebut nilai nya terpenuhi
+-> =IF(AND(pernyataan1(>,<,=,>=,<=,!=,!,<>)pernyataan2;pernyataan3(>,<,=,>=,<=,!=,!,<>)pernyataan4);"value_true";"value_false)
+
+IFOR
+-> Membuat sebuah nilai berdasarkan pernyataan yang mau diuji jika salah satu pernyataan tersebut nilai nya terpenuhi
+-> =IF(OR(pernyataan1(>,<,=,>=,<=,!=,!,<>)pernyataan2;pernyataan3(>,<,=,>=,<=,!=,!,<>)pernyataan4);"value_true";"value_false)
+
+IF Dengan Operasi Aritmatika
+-> =IF(SUM(pernyataan1)(>,<,=,>=,<=,!=,!,<>)pernyataan2;"value_true"(+,-,*,/)SUM(pernyataantrue);pernyataanfalse(+,-,*,/)SUM(pernyataanfalse))
+
+- IFERROR
+-> Untuk menyamarkan jika rumusnya yang digunakan ternyata menghasilkan nilai error (#N/A,#DIV/0,######,#REF,#VALUE,#SPILL,#NAME)
+-> =IFERROR(IFS(pernyataan1(>,<,=,>=,<=,!=,!,<>)pernyataan2(mengacu pada cell kriteria)+F4;"value_true";
+-> pernyataanfalse(>,<,=,>=,<=,!=,!,<>)pernyataanfalse(mengacu pada cell kriteria)+F4;
+-> "value_false"(mengacu pada cell kriteria)+F4);"hasil_value_error")
