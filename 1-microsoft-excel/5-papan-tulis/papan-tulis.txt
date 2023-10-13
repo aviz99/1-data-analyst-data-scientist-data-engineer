@@ -1,0 +1,17 @@
+4. Papan Tulis
+- STD
+-> untuk mengukur persebaran pada data berdasarkan nilai rata - rata nya
+-> =STDEV.P(number1;number2;...)
+
+- QUARTILE
+-> 
+-> 
+
+- CORREL
+-> 
+-> 
+
+- VAR
+-> untuk mencari rata-rata pada dataset berdasarkan seberapa jauh data tersebut mungkin terjadi
+-> jarak nilai terkecil ke nilai terbesar jarak nya berapa 
+-> =VAR.P(number1;number2;...)

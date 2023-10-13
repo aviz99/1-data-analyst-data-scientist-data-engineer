@@ -4,18 +4,64 @@
 
 2. Report & Analysis
 - MEAN, MEDIAN, MODE
+- MEAN
+-> Untuk menghitung nilai rata-rata dari data yang ada.
+-> =AVERAGE(number1;number2;...)
+
+- MODE / MODUS
+-> Untuk mencari nilai yang sering muncul.
+-> =MODE.SNGL(number1;number2;...)
+
+- MEDIAN
+-> Untuk mencari nilai tengah.
+-> =MEDIAN(number1;number2;...)
+
 - SUM, COUNT, AVERAGE, SUBTOTAL
+- SUM
+-> untuk menjumlahkan seluruh data
+-> =SUM(number1;number2;...)
+
+- COUNT
+-> untuk menghitung banyak nya data
+-> =COUNT(value1;value2;...)
+
+- AVERAGE
+-> Sama seperti MEAN yaitu Untuk mencari nilai rata-rata dari data yang ada.
+-> =AVERAGE(number1;number2;...)
+
+- SUBTOTAL
+-> menjumlahkan atau menghasilkan dalam daftar atau database mengembalikan dari subtotal dari sebuah daftar data
+-> =SUBTOTAL(fungsi_num;ref_cell1;ref_cell2;...)
+-> fungsi_num : 1,2,3,4,5,... (termasuk nilai tersembunyi)
+-> fungsi_num : 101,102,103,104,105,... (mengabaikan nilai tersembunyi)
+-> menggunakan SUBTOTAL secara cepat
+-> pilih "Data" lalu pilih "Outline"
+-> kemudian sort dulu data nya ascending ke descending
+-> lalu pilih "Outline" lalu pilih "Subtotal"
+-> menggunakan SUBTOTAL dalam format table
+-> blok seluruh table lalu pilih "Home"
+-> lalu pilih "Format as Table"
+-> pilih format yang kalian butuhkan
+-> lalu pilih "Table Design" kemudian tambahkan "Total Row"
+
 - SUMIFS, COUNTIFS
+- SUMIFS
+-> menjumlahkan jika kriteria nya lebih dari satu
+-> =SUMIFS(data_yang_dijumlahkan;data_kriteria_dicari1;"kriteria_dicari1";data_kriteria_dicari2;"kriteria_dicari2;...)
+
+- COUNTIFS
+-> 
+-> 
+
+- SUMIF,COUNTIF
+- SUMIF
+-> menjumlahkan satu kriteria tertentu
+-> =SUMIF(data_kriteria_dicari;"kriteria_dicari";data_yang_dijumlahkan)
+
+- COUNTIF
+-> 
+-> 
+
 - Pivot Table
-
-3. Data Inspection
-- INDEX
-- MATCH
-- VLOOKUP
-- MIN, MAX
-
-4. Papan Tulis
-- STD
-- QUARTILE
-- CORREL
-- VAR
+-> 
+-> 

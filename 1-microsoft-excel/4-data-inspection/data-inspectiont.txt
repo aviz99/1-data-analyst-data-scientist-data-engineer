@@ -1,0 +1,22 @@
+3. Data Inspection
+- INDEX
+-> 
+-> 
+
+- MATCH
+-> 
+-> 
+
+- VLOOKUP
+-> 
+-> 
+
+- MIN, MAX
+- MIN
+-> untuk mencari nilai terkecil
+-> =MIN(number1;number2;...)
+
+
+- MAX
+-> untuk mencari nilai terbesar
+-> =MAX(number1;number2;...)
