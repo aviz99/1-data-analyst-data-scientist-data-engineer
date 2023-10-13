@@ -1,21 +1,30 @@
 3. Data Inspection
 - INDEX
--> 
--> 
+-> digunakan untuk mendapatkan data dari sebuah range atau array data sesuai dengan informasi kolom dan baris yang diberikan
+-> =INDEX(tab_ref;row_num;col_num)
+-> biasa nya digunakan untuk mencari perpotongan data
+-> contoh nya jadwal kereta api, mencari harga menu makanan / minuman
 
 - MATCH
--> 
--> 
+-> digunakan untuk mendapatkan posisi index atau posisi relatif data yang dicari pada range data pencarian
+-> =MATCH(cell_acuan;col_ref;0)
+-> biasa nya digunakan untuk mencari perpotongan data
+-> contoh nya jadwal kereta api, mencari harga menu makanan / minuman
 
 - VLOOKUP
--> 
--> 
+-> untuk mencari sebuah data
+-> =VLOOKUP(lookup_value+F4;table_array+F4;col_index_num;0)
+-> menggabungkan 2 table yang berbeda
+-> =VLOOKUP(cell_key_kunci_menghubungkan_2_table;table_referensi+F4;col_index_num;memastikan_hasil_yang_akurat(0/1/FALSE/TRUE))
+-> menentukan kelompok dari sebuah data
+-> =VLOOKUP(cell_key_kunci_menghubungkan_2_table;table_referensi+F4;col_index_num;memastikan_hasil_yang_akurat(0/1/FALSE/TRUE))
+-> memastikan apakah table reference nya sudah di sort secara asc atau desc
+-> harus di sort dari nilai terkecil sampai nilai terbesar
 
 - MIN, MAX
 - MIN
 -> untuk mencari nilai terkecil
 -> =MIN(number1;number2;...)
-
 
 - MAX
 -> untuk mencari nilai terbesar

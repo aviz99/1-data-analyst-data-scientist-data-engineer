@@ -50,8 +50,8 @@
 -> =SUMIFS(data_yang_dijumlahkan;data_kriteria_dicari1;"kriteria_dicari1";data_kriteria_dicari2;"kriteria_dicari2;...)
 
 - COUNTIFS
--> 
--> 
+-> menghitung banyak nya data berdasarkan lebih dari 1 kriteria tertentu
+-> =COUNTIFS(banyak_nya_data_dicari1;data_kriteria_dicari1;banyak_nya_data_dicari2;data_kriteria_dicari2;...)
 
 - SUMIF,COUNTIF
 - SUMIF
@@ -59,9 +59,26 @@
 -> =SUMIF(data_kriteria_dicari;"kriteria_dicari";data_yang_dijumlahkan)
 
 - COUNTIF
--> 
--> 
+-> menghitung banyak nya data berdasarkan 1 kriteria tertentu
+-> =COUNTIF(banyak_nya_data_dicari;data_kriteria_dicari)
 
 - Pivot Table
--> 
--> 
+-> sebuah data yang berisi beberapa informasi atau sifat nya multi-dimensional dengan pivot table kita bisa dengan mudah untuk mengolah data
+-> sehingga kita dengan bisa mudah melakukan analisa data dengan skala kecil maupun besar
+-> blok atau klik salah satu cell data atau table yang ingin dijadikan pivot table
+-> lalu pilih tab "Insert" lalu pilih "Pivot Table"
+-> kemudian pilih "Existing Worksheet" lalu pilih tempat pivot table yang akan digunakan
+-> lalu pilih "PivotTable Fields"
+-> penjualan motor dimasing-masing area
+-> masukkan "motor" sebagai "Rows"
+-> lalu masukkan "area" sebagai "Columns"
+-> lalu masukkan "penjualan" sebagai "Values"
+-> penjualan motor dimasing-masing area dan bulan
+-> masukkan "area" sebagai "Rows"
+-> lalu masukkan "bulan" sebagai "Columns"
+-> memakai "Filter" di Pivot Table
+-> mengetahui penjualan dimasing-masing kota setiap bulan nya hanya untuk merek motor tertentu
+-> masukkan "motor" sebagai "Filters"
+-> mengecek penjualan motor Honda dimasing-masing area dan setiap bulan nya
+-> klik tanda panah yang ada di "(All)"
+-> lalu pilih merek motor "Honda"
