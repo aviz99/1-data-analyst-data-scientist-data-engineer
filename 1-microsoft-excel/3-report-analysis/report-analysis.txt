@@ -82,3 +82,98 @@
 -> mengecek penjualan motor Honda dimasing-masing area dan setiap bulan nya
 -> klik tanda panah yang ada di "(All)"
 -> lalu pilih merek motor "Honda"
+
+- Pivot Table Lanjutan
+-> blok atau klik salah satu cell data atau table yang ingin dijadikan pivot table
+-> lalu pilih tab "Insert" lalu pilih "Pivot Table"
+-> kemudian pilih "New Worksheet" lalu pilih tempat pivot table yang akan digunakan
+
+-> cara Expand dan Collapse Pivot
+-> pilih salah satu dari "Tipe Mobil"
+-> lalu pilih tab "PivotTable Analyze"
+-> pilih "Collapse Field (-)"
+
+-> mengolah data dengan memberi rumus langsung di Pivot
+-> masukkan "Penjualan" sebagai "Values
+-> masukkan "Tipe Mobil" sebagai "Rows"
+-> masukkan "Harga Modal" sebagai "Values"
+-> menghitung profit
+-> Profit = Penjualan - Harga Modal
+-> pilih salah satu dipivot table disini table "Penjualan" dan table "Harga"
+-> lalu pilih "PivotTable Analyze"
+-> pilih "Fields, Items & Sets" di tab "Calculation"
+-> lalu pilih "Calculated Field"
+-> Name: mengubah nama column
+-> Formula: rumus excel
+-> Name: Profit
+-> Formula: = Penjualan - Harga Modal
+-> menghitung Profit Bersih
+-> Profit Bersih = Profit * (1 - 10%)
+
+-> mengurutkan data di Pivot Table
+-> pilih salah satu dipivot table disini table "Stok Terjual"
+-> klik kanan lalu pilih "Sort"
+-> pilih salah satu dari yang terkecil sampai ke terbesar (ASC) atau dari yang terbesar sampai ke terbesar (DESC)
+
+-> mengubah Value Data
+-> masukkan "Penjualan" sebagai "Values"
+-> pilih "Sum of Penjualan"
+-> pilih "Value Fields Settings"
+-> menghitung rata-rata setiap kali penjualan berdasarkan bulan
+-> pilih "Average"
+
+-> melihat detail sebuah Data di Pivot
+-> masukkan "Merek" sebagai "Rows"
+-> lalu klik 2x pada salah satu satble disini table "Penjualan"
+
+-> menghitung proporsi sebuah data terhadap total data
+-> pilih salah satu dipivot table disini table "Penjualan"
+-> klik kanan lalu pilih "Show Values As"
+-> dibandngkan dengan total di masing - masing column
+-> pilih "% of Columns Total"
+-> menentukan Ranking dari data Pivot
+-> blok table "Sum of Penjualan"
+-> klik kanan lalu pilih "Show Values As" kembali
+-> lalu pilih "Rank Largest To Smallest"
+-> lalu pilih "Base Field" nya "Merek" 
+
+-> membuat Pivot Chart (grafik dari Pivot Table)
+-> pilih salah satu dipivot table disini table "Penjualan"
+-> pilih "PivotChart" pada di tab "PivotTable Analyze"
+-> pilih jenis grafik yang kalian akan tampilkan disini kita memilih jenis grafik "3-D Pie"
+
+-> mengubah tampilan Pivot Table Fields
+-> pilih "Settings (gambar gear)"
+-> pilih salah satu yang kalian suka
+-> mengurutkan data di Pivot Table Fields (A-Z)
+-> pilih "Settings (gambar gear)"
+-> pilih "Sort A to Z"
+
+-> menambahkan Slicer di Pivot
+-> pilih "PivotTable Analyze"
+-> pilih "Insert Slicer" pada tab "Filter"
+-> pilih salah satu data "Insert Slicer" yang dipilih disini kita memilih "Bulan", "Merek" & "Tipe"
+
+-> menambahkan Timeline di Pivot
+-> pilih "PivotTable Analyze"
+-> pilih "Insert Timeline" pada tab "Filter"
+
+-> membuat Group/Cluster dari beberapa data Pivot
+-> pilih data yang ingin di Grouping disini "Merek" "Honda" & "Mitsubishi"
+-> klik kanan lalu pilih "Group"
+
+-> menghilangkan Grand Total dan Sub Total dari Pivot
+-> pilih "Grand Total"
+-> lalu pilih "Design"
+-> pilih "Grand Total"
+-> lalu pilih "Off For Rows And Columns"
+-> pilih "Design"
+-> pilih "Sub Total"
+-> lalu pilih "Do Not Shows Sub Total"
+-> pilih "Report Layout"
+-> lalu pilih "Show In Outline Form"
+-> pilih "Show In Tabular Form"
+
+-> trik supaya laptop ga lemot pas pake Pivot
+-> pilih "Defer Layout Update"
+-> lalu pilih "Update"
