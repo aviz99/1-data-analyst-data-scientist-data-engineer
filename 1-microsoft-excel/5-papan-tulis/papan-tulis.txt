@@ -2,10 +2,21 @@
 - STD
 -> untuk mengukur persebaran pada data berdasarkan nilai rata - rata nya
 -> =STDEV.P(number1;number2;...)
-
+-> STDEV, STDEVA & STDEV.S = Standard Deviasi Sampling
+-> STDEVP, STDEVPA & STDEV.P = Standard Deviasi Populasi
+-> Standard Deviasi Sampling (STDEV, STDEVA & STDEV.S)
+-> 
+-> jika situasi nya sudah berbeda kita hanya menghitung katakan dari 2015 sampai 2021 yang tahun sebelumnya tidak mau hitung
+-> jika kita mengambil sepotong data entah di awal, di tengah atau di akhir
+-> /n-1
+-> Standard Deviasi Populasi (STDEVP, STDEVPA & STDEV.P)
+-> 
+-> misal nya kita memliki data dari sejak ada pertama kali sampai dengan saat ini
+-> /n
 - QUARTILE
--> 
--> 
+-> nilai yang membagi sekumpulan data yang terurut menjadi empat bagian yang sama yaitu bagian pertama, bagian kedua, bagian ketiga dan bagian
+-> keempat.
+-> =QUARTILE.INC(array;quart)
 
 - CORREL
 -> 
