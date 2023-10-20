@@ -1,3 +1,7 @@
+## 13 / 10 /2023
+## Day - 2
+## Data Inspection
+
 3. Data Inspection
 - INDEX
 -> digunakan untuk mendapatkan data dari sebuah range atau array data sesuai dengan informasi kolom dan baris yang diberikan

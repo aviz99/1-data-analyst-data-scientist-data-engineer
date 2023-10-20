@@ -1,3 +1,7 @@
+## 19 / 10 /2023
+## Day - 3
+## Papan Tulis
+
 4. Papan Tulis
 - STD
 -> untuk mengukur persebaran pada data berdasarkan nilai rata - rata nya
@@ -20,7 +24,13 @@
 
 - CORREL
 -> 
--> 
+-> pilih cell yang kosong
+-> lalu pilih "Data Analysis" pada tab "Data"
+-> pilih "Correlation"
+-> masukkan "Input Range" nya yaitu range atau data yang ingin di correlation kan
+-> lalu pilih "Grouped By" nya adalah "Column" pada kasus ini
+-> pilih "Labels In First Row"
+-> pilih salah satu "Output Option" yang ingin ditempatkan pada kasus ini kita pilih "Output Range" yang sama
 
 - VAR
 -> untuk mencari rata-rata pada dataset berdasarkan seberapa jauh data tersebut mungkin terjadi

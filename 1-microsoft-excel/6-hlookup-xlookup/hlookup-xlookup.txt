@@ -1,0 +1,15 @@
+## 19 / 10 /2023
+## Day - 3
+## HLOOKUP & XLOOKUP
+
+4. HLOOKUP & XLOOKUP
+
+- HLOOKUP
+-> mencari sebuah data berdasarkan salah satu informasi dari data yang lain secara horizontal
+-> =HLOOKUP(cell_keys+F4;tab_ref+F4;col_index_num;0)
+
+- XLOOKUP
+-> untuk menemukan berbagai hal dalam tabel atau rentang menurut baris.
+-> =XLOOKUP(cell_keys+F4;tab_ref/tidak_semua_diblok_hanya_salah_satu_tab_yang_dicari+F4;col_row_info;"[if_not_found]")
+-> =XLOOKUP(cell_keys+F4;tab_ref/tidak_semua_diblok_hanya_salah_satu_tab_yang_dicari+F4;col_row_info;"[if_not_found]";;;[search_mode/info_baru])
+-> =XLOOKUP(cell_keys+F4;tab_ref/tidak_semua_diblok_hanya_salah_satu_tab_yang_dicari+F4;col_row_info;"[if_not_found]";;[match_mode])
