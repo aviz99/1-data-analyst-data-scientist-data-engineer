@@ -1,0 +1,90 @@
+## 22 / 10 /2023
+## Day - 4
+## Macro VBA
+
+- Macro
+-> digunakan untuk memberitahukan kepada Excel untuk merekam beberapa aktivitas yang kita lakukan hal yang sama dan berulang - ulang
+-> cara menampilkan fitur Macro di Excel
+-> pilih tab "File"
+-> pilih "Option"
+-> pilih "Customize Ribbon"
+-> di bagian "Main Tabs" pilih "Developer"
+-> Klik "OK"
+-> untuk merekam Macro
+-> pilih ujung atas kiri pada data kalian
+-> pilih tab "Developer" lalu pilih "Record Macro" pada "Code"
+-> sebelum kita mengaktifkan Macro kita pilih "Use Relative References"
+-> disarankan jika macro sudah aktif untuk menggunakan keyboard
+
+-> membuat nama lengkap menjadi 2 kolom
+-> tekan "tanda panah kanan"
+-> pilih kolom "Penjualan"
+-> lalu klik kanan lalu pilih "Insert"
+-> tekan "tanda panah kiri" supaya balik lagi ke "Nama Lengkap"
+-> memblok ujung tabel dari atas sampai bawah
+-> ctrl + shift + "tanda panah bawah"
+-> jika sudah diblok, pilih tab "Data" lalu pilih "Text to Columns"
+-> lalu delimitits next
+-> lalu pilih yang "space" karena kita ingin memisahkan berdasarkan spasi nya
+-> lalu pilih next lagi dan klik finish
+-> jika sudah terpisah, tekan "tanda panah atas"
+-> ubah judul kolom "Nama" menjadi "Nama Depan"
+-> tekan "tanda panah kanan"
+-> ubah judul kolom "Lengkap" menjadi "Nama Belakang"
+-> jika sudah diubah, tekan "tanda panah kiri"
+
+-> memformat tabel
+-> tekan "ctrl + shift + tanda panah bawah"
+-> lalu tekan "ctrl + shift + tanda panah kanan"
+-> jika sudah ke blok semua, pilih tab "Home" lalu pilih "Borders"
+-> jika sudah ada "Borders", tekan "tanda panah atas"
+-> lalu tekan "ctrl + shift + tanda panah kanan"
+-> lalu berikan "Bold" dan berikan warna serta berikan posisi "Center"
+-> jika sudah, tekan "tanda panah kanan"
+
+-> berikan "Conditional Formatting" pada kolom "Penjualan"
+-> tekan "tanda panah bawah" sekali
+-> lalu tekan "ctrl + shift + tanda panah bawah"
+-> pilih "Conditional Formatting" lalu pilih "Highlight Cells Rules" pilih "Less Than"
+-> lalu ketik "100" lalu "OK"
+-> jika sudah aktivitas di Excel menggunakan Macro
+-> pilih tab "Developer" lalu pilih "Stop Recording"
+
+-> melihat Macro yang sudah direkam dan dijalankan
+-> pilih "Cell A1" lalu pilih tab "Developer" lalu pilih "Macros"
+-> pilih nama Macros yang sudah direkam disini nama Macros pada kasus ini adalah "Table2"
+-> jika sudah dipilih, pilih "Run"
+
+-> menggunakan Shortcut
+-> pilih "Macros"
+-> lalu pilih nama Macros yang sudah direkam disini nama Macros pada kasus ini adalah "Table2"
+-> pilih "Option"
+-> di "Shortcut Key" ketikan atau tekan "Shift + N"
+
+-> membuat tombol di Macro
+-> pilih tab "Inserts" pada tab "Controls" di tab "Developer"
+-> pilih "Button"
+-> jika sudah, tekan "Alt"
+-> jika sudah sesuai ukuran "Button" yang diinginkan, lepas tombol "Alt" dan
+-> muncul window "Assign Macro" lalu pilih macro yang sudah dibuat disini nama Macro pada kasus ini adalah "Table2"
+-> lalu klik kanan dan sesuai kan ukuran dan nama button yang kita ingikan disini kita namakan button kita adalah "Format Table"
+-> dan ukuran nya kecil
+-> jika sudah sesuai, aktifkan dulu "Cell A1" nya
+-> lalu pilih tombol yang sudah dibuat yaitu "Format Table"
+
+-> hubungan Macro dengan VBA
+-> pilih "Visual Basic" pada tab "Developer"
+-> jika sudah, pilih "Modules" lalu pilih "Module1" lalu klik 2x
+-> edit data yang kalian inginkan disini "Sub Table2" dari "ActiveCell.FormulaR1C1 = "Nama Belakang"" menjadi
+-> ActiveCell.FormulaR1C1 = "Nama Keluarga"
+-> jika sudah, close
+-> lalu jalankan macro yang sudah diedit dengan vba
+-> ctrl + shift + N
+
+-> menyimpan file Macro
+-> pilih "File"
+-> lalu pilih "Save as"
+-> pilih tempat penyimpanan yang akan disimpan
+-> jika sudah tempat yang ingin disimpan sebelum di "Save"
+-> pilih "Save as Type" nya "Excel Macro-Enbaled Workbook"
+-> jika sudah tekan "Save"
