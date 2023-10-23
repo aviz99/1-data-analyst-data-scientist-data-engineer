@@ -11,6 +11,8 @@ list_b = [6, 7, 8, 9, 10]
 # array numpy
 array_a = np.array([1, 2, 3, 4, 5])
 array_b = np.array([6, 7, 8, 9, 10])
+print(f"array A:\n{array_a}")
+print(f"array B:\n{array_b}")
 
 # elementwise operation
 # operasi nya itu perelemen
@@ -53,3 +55,12 @@ array_d = np.array(([7, 8, 9], [-1, -2, -3]))
 
 hasil_multidimensi = array_c + array_d
 print(f"array multidimensi:\n{hasil_multidimensi}")
+
+
+# akar
+print(f"akar array A:\n{np.sqrt(array_a)}")
+print(f"akar array B:\n{np.sqrt(array_b)}")
+
+# exponential / perpangkatan
+print(f"pangkat array A:\n{np.exp(array_a)}")
+print(f"pangkat array B:\n{np.exp(array_b)}")

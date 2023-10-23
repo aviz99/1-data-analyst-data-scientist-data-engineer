@@ -48,3 +48,53 @@ print(c_bil_matriks2D)
 # from numpy.random import rand, randn, randint
 # randn(6,2)
 # randint(awal,akhir,nilaiYgInginDikeluarkan)
+
+# untuk mengetahui angka maksimal berdasarkan index
+coba_1D = np.random.randint(0, 100, 20)
+coba_2D = np.random.randint(0, 100, 20).reshape(4, 5)
+
+print("\n")
+print(coba_1D)
+print("\n")
+print(coba_2D)
+print("\n")
+
+# max()
+print(coba_1D.max())
+print(coba_2D.max())
+
+# min()
+print(coba_1D.min())
+print(coba_2D.min())
+
+# mengetahui sebuah index nya
+print(coba_1D.argmax())
+print(coba_2D.argmax())
+
+print(coba_1D.argmin())
+print(coba_2D.argmin())
+print("\n")
+
+# mengetahui dimensi array atau matriks
+print(coba_1D.shape)
+print(coba_2D.shape)
+print("\n")
+
+# mengetahui tipe data matriks atau array
+print(coba_1D.dtype)
+print("\n")
+
+d_bil_matriks_2D = np.array([(1, 2, 3), (4, 5, 6), (7, 8, 9)])
+
+print(d_bil_matriks_2D)
+print(d_bil_matriks_2D[0][0])
+print(d_bil_matriks_2D[1])
+print(d_bil_matriks_2D[2][2])
+print(d_bil_matriks_2D[2, 2])
+print(d_bil_matriks_2D[1:2, 1:])
+
+# slicing dengan boolean di Numpy
+e_bil_matriks = np.arange(1, 11)
+print(e_bil_matriks)
+print("\n")
+print(f"boolean matriks bernilai:\n{e_bil_matriks > 5}")
