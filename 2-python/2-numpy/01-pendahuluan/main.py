@@ -24,7 +24,9 @@
 # lalu pilih Yes 'y'
 
 # package operasi matematika matriks
+# NumPy adalah library aljabar linear untuk Python
 # kegunaan nya adalah bisa membuat matriks
+# Numpy sering digunakan dalam konteks AI & Data Science
 import numpy as np
 
 list_a = [1, 2, 3, 4]
@@ -53,3 +55,7 @@ print(f"matriks ones d: \n{ones_d}")
 # menjumlahkan seluruh matriks / melakukan operasi matriks
 jumlah = matrix_b + matrix_b**2 + ones_d
 print(jumlah)
+
+# matrix 3x3
+matrix_e = np.array([(1, 3, 5), (2, 4, 6), (7, 8, 9)])
+print(f"matrix e:\n{matrix_e}")

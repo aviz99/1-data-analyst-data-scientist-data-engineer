@@ -22,3 +22,29 @@ print(f"elemen dari awal sd ke-5: {a_array_biasa[:5]}")
 # iteration
 for i in a_array_biasa:
     print(f"value: {i}")
+
+# bilangan distrbusi uniform (0-1)
+b_bil_acak = np.random.rand(4)
+
+# bilangan distrbusi uniform (0-1) matriks 2 dimensi
+b_bil_acak_matriks2D = np.random.rand(5, 4)
+
+print(b_bil_acak)
+print("\n")
+print(b_bil_acak_matriks2D)
+print("\n")
+
+# bilangan distrbusi normal (gaussian)
+c_bil = np.random.randn(10)
+
+# bilangan distrbusi normal (gaussian) matriks 2 dimensi
+c_bil_matriks2D = np.random.randn(4, 4)
+
+print(c_bil)
+print("\n")
+print(c_bil_matriks2D)
+
+# cara cepat
+# from numpy.random import rand, randn, randint
+# randn(6,2)
+# randint(awal,akhir,nilaiYgInginDikeluarkan)
