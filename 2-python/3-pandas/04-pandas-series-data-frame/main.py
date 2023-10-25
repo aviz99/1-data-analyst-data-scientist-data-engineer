@@ -35,7 +35,8 @@ print(mydata2)
 print(mydata3)
 
 # menjumlahkan data Series
-# jika ada index yang sama pada antara mydata2 dan mydata3 maka akan menjumlahkan yang index nya sama
+# jika ada index yang sama pada antara mydata2 dan mydata3
+# maka akan menjumlahkan yang index nya sama
 # jika index nya tidak sama maka akan menjadi NaN
 print(mydata2 + mydata3)
 

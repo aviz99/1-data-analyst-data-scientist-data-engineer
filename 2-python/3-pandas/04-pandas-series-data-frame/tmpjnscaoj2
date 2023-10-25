@@ -54,6 +54,6 @@ dataku3 = dataku
 # gunakan mean jika data tersebut numerik
 dataku3.age = dataku3.age.fillna(value=dataku3.age.mean())
 # merubah data series menjadi data array
-# print(dataku.age.values)
+print(dataku.age.values)
 # print(dataku3.age)
-print(dataku3)
+# print(dataku3)
